@@ -478,6 +478,31 @@
 
     .embed-note strong { color: var(--gold); }
 
+    /* PUSHEEN BREAK */
+    .pusheen-player {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(255,42,157,0.35), 0 12px 40px rgba(0,0,0,0.35);
+    }
+
+    .pusheen-player .video-ratio {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+    }
+
+    .pusheen-player iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 640px) {
       .section { padding: 44px 16px; }
@@ -526,6 +551,15 @@
     <section class="section" id="photos" aria-label="Photos">
       <h2 class="section-title">Her Day 1's</h2>
       <div class="photo-grid" id="photo-grid"></div>
+    </section>
+
+    <section class="section" id="pusheen" aria-label="Pusheen Break">
+      <h2 class="section-title">Pusheen Break</h2>
+      <div class="pusheen-player">
+        <div class="video-ratio">
+          <iframe src="https://www.youtube-nocookie.com/embed/dJjEk2TLo-Y" title="Pusheen video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="nattok" aria-label="NATTOK">
