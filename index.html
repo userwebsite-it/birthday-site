@@ -144,6 +144,77 @@
       max-width: 720px;
     }
 
+    .hero-fullname {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 18px;
+      text-shadow: 0 0 18px rgba(255,255,255,0.35);
+      opacity: 0.95;
+    }
+
+    .ipad-float {
+      margin-top: 28px;
+      pointer-events: none;
+      perspective: 1000px;
+    }
+
+    .ipad-stage {
+      width: 180px;
+      height: 240px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spin-ipad 7s linear infinite;
+    }
+
+    .ipad-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      backface-visibility: hidden;
+    }
+
+    .ipad-front {
+      background: linear-gradient(135deg, #ff6ec4, #ff2a9d);
+      padding: 12px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,0.15), 0 0 30px rgba(255,42,157,0.4);
+    }
+
+    .ipad-back {
+      background: linear-gradient(135deg, #c41e7f, #99135e);
+      transform: rotateY(180deg);
+      box-shadow: inset 0 0 0 2px rgba(0,0,0,0.15);
+    }
+
+    .ipad-screen {
+      width: 100%;
+      height: 100%;
+      background: #0a0a0a;
+      border-radius: 10px;
+      position: relative;
+      border: 2px solid rgba(255,255,255,0.08);
+    }
+
+    .ipad-camera {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      height: 6px;
+      background: #444;
+      border-radius: 50%;
+      box-shadow: inset 0 0 2px rgba(0,0,0,0.8);
+    }
+
+    @keyframes spin-ipad {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
     .scroll-hint {
       position: absolute;
       bottom: 32px;
@@ -162,6 +233,7 @@
 
     @media (prefers-reduced-motion: reduce) {
       .scroll-hint { animation: none; }
+      .ipad-stage { animation: none; }
     }
 
     /* COUNTDOWN */
@@ -410,6 +482,8 @@
     @media (max-width: 640px) {
       .section { padding: 44px 16px; }
       .hero { min-height: 92vh; }
+      .ipad-stage { width: 120px; height: 160px; }
+      .ipad-float { margin-top: 22px; }
     }
   </style>
 </head>
@@ -420,7 +494,18 @@
   <header class="hero" id="hero">
     <div class="hero-prelude">sorry its a day late</div>
     <h1 id="hero-headline">Happy Birthday, NATT!</h1>
+    <div class="hero-fullname">Natalie Marizel Cruz</div>
     <div class="hero-subline">everyone deserves a birthday present</div>
+    <div class="ipad-float" aria-hidden="true">
+      <div class="ipad-stage">
+        <div class="ipad-face ipad-front">
+          <div class="ipad-screen">
+            <div class="ipad-camera"></div>
+          </div>
+        </div>
+        <div class="ipad-face ipad-back"></div>
+      </div>
+    </div>
     <div class="scroll-hint">Scroll down ↓</div>
   </header>
 
