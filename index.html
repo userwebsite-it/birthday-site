@@ -440,6 +440,22 @@
 
     .embed-note strong { color: var(--gold); }
 
+    /* TIKTOK EMBEDS */
+    .tiktok-embeds {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 32px;
+    }
+
+    .tiktok-embeds blockquote {
+      flex: 1 1 300px;
+      max-width: 360px !important;
+      margin: 0 !important;
+    }
+
     /* RESPONSIVE */
     @media (max-width: 640px) {
       .section { padding: 44px 16px; }
@@ -491,6 +507,12 @@
       <h2 class="section-title">Follow Her</h2>
       <div class="social-pills" id="social-pills"></div>
       <div class="embed-grid" id="embed-grid"></div>
+      <div class="tiktok-embeds">
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@natt1555/video/7641759650274151694" data-video-id="7641759650274151694" style="max-width: 605px;min-width: 325px;"><section><a target="_blank" title="@natt1555" href="https://www.tiktok.com/@natt1555?refer=embed">@natt1555</a></section></blockquote>
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@natt1555/video/7588709296175664398" data-video-id="7588709296175664398" style="max-width: 605px;min-width: 325px;"><section><a target="_blank" title="@natt1555" href="https://www.tiktok.com/@natt1555?refer=embed">@natt1555</a></section></blockquote>
+        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@natt1555/video/7592456792886496525" data-video-id="7592456792886496525" style="max-width: 605px;min-width: 325px;"><section><a target="_blank" title="@natt1555" href="https://www.tiktok.com/@natt1555?refer=embed">@natt1555</a></section></blockquote>
+      </div>
+      <script async src="https://www.tiktok.com/embed.js"></script>
     </section>
   </main>
 
@@ -523,13 +545,9 @@
       // e.g. ['https://www.instagram.com/p/ABC123/']
       instagramPosts: [],
 
-      // TikTok post URLs to embed via the official TikTok embed
-      // e.g. ['https://www.tiktok.com/@handle/video/1234567890']
-      tiktokPosts: [
-  'https://www.tiktok.com/@natt1555/video/7641759650274151694',
-  'https://www.tiktok.com/@natt1555/video/7588709296175664398',
-  'https://www.tiktok.com/@natt1555/video/7592456792886496525',
-],
+      // TikTok embeds are now hardcoded in the socials section below.
+      // This array is kept empty for compatibility and is no longer used.
+      tiktokPosts: []
     };
     /* =========================================================
        END CONFIG BLOCK
@@ -684,41 +702,23 @@
       }
 
       const hasIgPosts = CONFIG.instagramPosts && CONFIG.instagramPosts.length > 0;
-      const hasTtPosts = CONFIG.tiktokPosts && CONFIG.tiktokPosts.length > 0;
 
-      if (!hasIgPosts && !hasTtPosts) {
-        embeds.innerHTML = '<div class="embed-note">No embedded posts yet. Paste Instagram URLs into <strong>CONFIG.instagramPosts</strong> and TikTok URLs into <strong>CONFIG.tiktokPosts</strong>.</div>';
+      if (!hasIgPosts) {
+        embeds.innerHTML = '<div class="embed-note">No embedded Instagram posts yet. Paste Instagram URLs into <strong>CONFIG.instagramPosts</strong>.</div>';
       } else {
         let html = '';
-        if (hasIgPosts) {
-          html += CONFIG.instagramPosts.map(url => `
-            <blockquote class="instagram-media" data-instgrm-permalink="${escapeHtml(url)}" data-instgrm-version="14" style="width:100%;max-width:540px;min-width:326px;background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0 auto;">
-              <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
-            </blockquote>
-          `).join('');
-        }
-        if (hasTtPosts) {
-          html += CONFIG.tiktokPosts.map(url => `
-            <blockquote class="tiktok-embed" cite="${escapeHtml(url)}" data-video-id="" style="max-width:605px;min-width:325px;">
-              <section><a target="_blank" rel="noopener noreferrer" href="${escapeHtml(url)}">View on TikTok</a></section>
-            </blockquote>
-          `).join('');
-        }
+        html += CONFIG.instagramPosts.map(url => `
+          <blockquote class="instagram-media" data-instgrm-permalink="${escapeHtml(url)}" data-instgrm-version="14" style="width:100%;max-width:540px;min-width:326px;background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0 auto;">
+            <a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">View this post on Instagram</a>
+          </blockquote>
+        `).join('');
         embeds.innerHTML = html;
 
-        // Load official embed scripts
-        if (hasIgPosts) {
-          const igScript = document.createElement('script');
-          igScript.async = true;
-          igScript.src = 'https://www.instagram.com/embed.js';
-          document.body.appendChild(igScript);
-        }
-        if (hasTtPosts) {
-          const ttScript = document.createElement('script');
-          ttScript.async = true;
-          ttScript.src = 'https://www.tiktok.com/embed.js';
-          document.body.appendChild(ttScript);
-        }
+        // Load official Instagram embed script
+        const igScript = document.createElement('script');
+        igScript.async = true;
+        igScript.src = 'https://www.instagram.com/embed.js';
+        document.body.appendChild(igScript);
       }
     }
 
