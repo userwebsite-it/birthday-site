@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday!</title>
+  <title>Happy Birthday, NATT!</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -89,7 +89,7 @@
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 80px 20px;
+      padding: 56px 20px;
     }
 
     .section-title {
@@ -113,42 +113,40 @@
       align-items: center;
       text-align: center;
       position: relative;
-      padding: 40px 20px;
+      padding: 60px 24px;
+    }
+
+    .hero-prelude {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--cyan);
+      text-shadow: 0 0 18px rgba(0,229,255,0.45);
+      margin-bottom: 16px;
+      opacity: 0.95;
+      letter-spacing: 0.02em;
     }
 
     .hero h1 {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(3.5rem, 12vw, 8rem);
-      line-height: 1.05;
+      font-size: clamp(3.8rem, 13vw, 9rem);
+      line-height: 0.95;
       color: #fff;
-      text-shadow: var(--glow-pink), 0 0 60px rgba(179,71,255,0.35);
-      margin-bottom: 20px;
+      text-shadow: var(--glow-pink), 0 0 70px rgba(179,71,255,0.35);
+      margin-bottom: 26px;
     }
 
-    .hero p {
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      color: var(--muted);
-      max-width: 700px;
-      margin-bottom: 28px;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: linear-gradient(90deg, var(--purple), var(--pink));
-      color: #fff;
-      padding: 12px 22px;
-      border-radius: 999px;
+    .hero-subline {
+      font-size: clamp(1.15rem, 3vw, 1.7rem);
       font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: var(--glow-purple);
-      margin-bottom: 30px;
+      color: var(--gold);
+      text-shadow: 0 0 18px rgba(255,215,0,0.35);
+      letter-spacing: 0.04em;
+      max-width: 720px;
     }
 
     .scroll-hint {
       position: absolute;
-      bottom: 30px;
+      bottom: 32px;
       left: 50%;
       transform: translateX(-50%);
       color: var(--muted);
@@ -235,80 +233,6 @@
     @media (max-width: 480px) {
       .countdown-grid { gap: 10px; }
       .count-card { padding: 18px 8px; }
-    }
-
-    /* EMPIRE CARDS */
-    .empire-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-    }
-
-    .empire-card {
-      background: var(--bg-2);
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .empire-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, var(--pink), var(--purple), var(--gold));
-      opacity: 0.7;
-      transition: opacity var(--transition);
-    }
-
-    .empire-card:hover, .empire-card:focus-within {
-      transform: translateY(-6px);
-      border-color: rgba(255,42,157,0.35);
-      box-shadow: var(--glow-pink), var(--shadow);
-    }
-
-    .empire-card:hover::before { opacity: 1; }
-
-    .empire-card h3 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 2rem;
-      color: var(--cyan);
-      margin-bottom: 10px;
-    }
-
-    .empire-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin-bottom: 18px;
-    }
-
-    .empire-card a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--gold);
-      font-weight: 600;
-      font-size: 0.9rem;
-      border-bottom: 1px solid transparent;
-      transition: border-color var(--transition);
-    }
-
-    .empire-card a:hover { border-color: var(--gold); }
-
-    .placeholder-note {
-      grid-column: 1 / -1;
-      text-align: center;
-      color: var(--muted);
-      border: 2px dashed rgba(255,255,255,0.15);
-      border-radius: var(--radius);
-      padding: 50px 30px;
-    }
-
-    .placeholder-note strong {
-      color: var(--gold);
     }
 
     /* PHOTO GRID */
@@ -516,23 +440,10 @@
 
     .embed-note strong { color: var(--gold); }
 
-    /* FOOTER */
-    .footer {
-      text-align: center;
-      padding: 40px 20px 60px;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
-    .footer span {
-      color: var(--pink);
-    }
-
     /* RESPONSIVE */
     @media (max-width: 640px) {
-      .section { padding: 60px 16px; }
+      .section { padding: 44px 16px; }
       .hero { min-height: 92vh; }
-      .empire-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -541,10 +452,10 @@
   <div id="confetti-layer" aria-hidden="true"></div>
 
   <header class="hero" id="hero">
-    <div class="hero-badge" id="hero-badge">🎉 The celebration continues!</div>
-    <h1 id="hero-headline">Happy Birthday!</h1>
-    <p id="hero-message">Wishing you a year as bright and wonderful as you are.</p>
-    <div class="scroll-hint">Scroll down to celebrate ↓</div>
+    <div class="hero-prelude">sorry its a day late</div>
+    <h1 id="hero-headline">Happy Birthday, NATT!</h1>
+    <div class="hero-subline">everyone deserves a birthday present</div>
+    <div class="scroll-hint">Scroll down ↓</div>
   </header>
 
   <main>
@@ -561,13 +472,8 @@
       </div>
     </section>
 
-    <section class="section" id="empire" aria-label="Her Empire">
-      <h2 class="section-title">Her Empire</h2>
-      <div class="empire-grid" id="empire-grid"></div>
-    </section>
-
     <section class="section" id="photos" aria-label="Photos">
-      <h2 class="section-title">Photo Memories</h2>
+      <h2 class="section-title">Her Day 1's</h2>
       <div class="photo-grid" id="photo-grid"></div>
     </section>
 
@@ -588,36 +494,17 @@
     </section>
   </main>
 
-  <footer class="footer">
-    Made with <span>♥</span> for <span id="footer-name">HER NAME</span>
-  </footer>
-
   <script>
     /* =========================================================
        CONFIG BLOCK — edit everything below this block only
        ========================================================= */
     const CONFIG = {
-      // Her name (used in hero, footer, and page title)
-      name: 'HER NAME',
-
-      // Short warm message under the headline
-      message: 'Wishing you a year as bright and wonderful as you are.',
-
-      // Hero badge text (set to empty string '' to hide)
-      badge: 'The celebration continues!',
+      // Her name (used in the hero headline and page title)
+      name: 'NATT',
 
       // Social handles (used in the pill buttons)
       instagramHandle: 'INSTAGRAM HANDLE',
       tiktokHandle: 'TIKTOK HANDLE',
-
-      // Her companies / ventures
-      // Each item: { name: '...', description: '...', link: 'https://...' }
-      // Leave link empty or omit it for no link.
-      ventures: [
-        { name: 'Venture One', description: 'A short description of her first company or project.', link: '' },
-        { name: 'Venture Two', description: 'A short description of her second company or project.', link: '' },
-        { name: 'Venture Three', description: 'A short description of her third company or project.', link: '' }
-      ],
 
       // Photo filenames — add the matching files to the repo root, then list them here
       // e.g. ['photo1.jpg', 'photo2.jpg', 'photo3.jpg']
@@ -646,11 +533,6 @@
     /* ---------- Personalize ---------- */
     document.title = `Happy Birthday, ${CONFIG.name}!`;
     $('#hero-headline').textContent = `Happy Birthday, ${CONFIG.name}!`;
-    $('#hero-message').textContent = CONFIG.message;
-    $('#footer-name').textContent = CONFIG.name;
-    const badge = $('#hero-badge');
-    if (!CONFIG.badge) badge.style.display = 'none';
-    else badge.textContent = `🎉 ${CONFIG.badge}`;
 
     /* ---------- Confetti ---------- */
     function createConfetti() {
@@ -709,25 +591,6 @@
       }
       tick();
       setInterval(tick, 1000);
-    }
-
-    /* ---------- Empire ---------- */
-    function initEmpire() {
-      const grid = $('#empire-grid');
-      if (!CONFIG.ventures || CONFIG.ventures.length === 0) {
-        grid.innerHTML = '<div class="placeholder-note">No ventures yet. Add them to the <strong>CONFIG.ventures</strong> array at the top of the script.</div>';
-        return;
-      }
-      grid.innerHTML = CONFIG.ventures.map(v => {
-        const link = v.link ? `<a href="${v.link}" target="_blank" rel="noopener noreferrer">Visit site →</a>` : '';
-        return `
-          <article class="empire-card">
-            <h3>${escapeHtml(v.name)}</h3>
-            <p>${escapeHtml(v.description)}</p>
-            ${link}
-          </article>
-        `;
-      }).join('');
     }
 
     /* ---------- Photos ---------- */
@@ -865,7 +728,6 @@
     document.addEventListener('DOMContentLoaded', () => {
       createConfetti();
       initCountdown();
-      initEmpire();
       initPhotos();
       initNattok();
       initSocials();
